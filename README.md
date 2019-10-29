@@ -38,6 +38,11 @@ replace that as `arn:aws:lambda:us-east-1:800406105498:layer:nsolid-node-10:late
 
 ## Changelog
 
+#### 1.0.5
+
+- Fix bug so that this plugin can coexist with [serverless-psuedo-parameters](https://www.npmjs.com/package/serverless-pseudo-parameters)
+
+
 #### 1.0.3
 
 - Fixed a bug that cause plugin failure when there's no any `Resources` field exists on the `serverless.yml` (#1, Thanks to [@falaa](https://github.com/falaa))
