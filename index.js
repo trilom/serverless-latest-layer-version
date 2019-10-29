@@ -35,7 +35,7 @@ class ServerlessPlugin {
       if (Array.isArray(functionDefLayers)) {
         await this.processLayerARNList(functionDefLayers);
       }
-      
+
       if (service.hasOwnProperty('Resources')) {
         const logicalId = this.provider.naming.getLambdaLogicalId(functionName);
         const resourceDef = service.resources.Resources[logicalId];
@@ -54,8 +54,10 @@ class ServerlessPlugin {
 
       // arn:aws:lambda:REGION:ACCOUNT_ID:layer:LAYER_NAME:LAYER_VERSION
       const arnParts = arn.split(':');
+      const layerParts = arnParts.slice(Math.max(arnParts.length - 2, 1));
       const layerRegion = arnParts[3];
-      const layerVersion = arnParts[7];
+      const layerName = layerParts[0];
+      const layerVersion = layerParts[1];
 
       if (layerVersion.toLowerCase() === 'latest' || layerVersion.toLowerCase() === '$latest') {
         const latestVersionARN = await (async () => {
@@ -64,7 +66,7 @@ class ServerlessPlugin {
             return this.cache.get(layerNameArn);
           }
 
-          const latestVersion = await this.getLatestLayerVersion(layerRegion, layerNameArn);
+          const latestVersion = await this.getLatestLayerVersion(layerRegion, layerName);
           const latestArn = [
             ...arnParts.slice(0, -1),
             latestVersion,
