@@ -1,6 +1,6 @@
 {
-  "name": "serverless-latest-layer-version",
-  "version": "1.0.3",
+  "name": "serverless-layer-version-latest",
+  "version": "1.0.4",
   "description": "A serverless plugin that replaces 'latest' version tag to actual lambda layer version",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mooyoul/serverless-latest-layer-version.git"
+    "url": "git+https://github.com/trilom/serverless-latest-layer-version.git"
   },
   "keywords": [
     "serverless",
@@ -16,12 +16,21 @@
     "aws",
     "lambda"
   ],
-  "author": "MooYeol Prescott Lee <mooyoul@gmail.com>",
+  "contributors": [
+    {
+      "name": "Bryan Killian",
+      "email": "me@trilom.org"
+    },
+    {
+      "name": "MooYeol Prescott Lee",
+      "email": "mooyoul@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mooyoul/serverless-latest-layer-version/issues"
+    "url": "https://github.com/trilom/serverless-latest-layer-version/issues"
   },
-  "homepage": "https://github.com/mooyoul/serverless-latest-layer-version#readme",
+  "homepage": "https://github.com/trilom/serverless-latest-layer-version#readme",
   "dependencies": {
     "aws-sdk": "^2.398.0"
   },
