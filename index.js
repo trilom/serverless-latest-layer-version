@@ -51,11 +51,10 @@ class ServerlessPlugin {
   async processLayerARNList(layerARNList) {
     for (let i = 0 ; i < layerARNList.length ; i++) {
       const arn = layerARNList[i];
-
       // arn:aws:lambda:REGION:ACCOUNT_ID:layer:LAYER_NAME:LAYER_VERSION
-      const arnParts = arn.split(':');
+      const arnParts = arn.split(/(?<!:):(?!:)/);
       const layerParts = arnParts.slice(Math.max(arnParts.length - 2, 1));
-      const layerRegion = arnParts[3];
+      const layerRegion = arnParts[3].replace('#{AWS::Region}', this.serverless.service.provider.region);
       const layerName = layerParts[0];
       const layerVersion = layerParts[1];
 
