@@ -105,12 +105,12 @@ class ServerlessPlugin {
 
     if (typeof args[0] === 'string') {
       formatArgs = [
-        `serverless-latest-layer-version ${args[0]}`,
+        `serverless-layer-version-latest ${args[0]}`,
         ...args.slice(1),
       ];
     } else {
       formatArgs = [
-        'serverless-latest-layer-version',
+        'serverless-layer-version-latest',
         ...args,
       ];
     }
